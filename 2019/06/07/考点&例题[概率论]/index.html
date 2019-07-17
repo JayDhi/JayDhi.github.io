@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="[[TOC]]  概率论基本概念  一、随机试验 &amp;#x1F53C;  二、样本空间、随机事件 &amp;#x1F53C;  三、频率与概率 &amp;#x1F53C;  四、等可能概型 公式例题 古典概型的基本事件集合是排列得到的, 而非组合得到的   将一枚硬币抛投三次, (1). 设事件$A_{1}$为”恰有一次出现正面”, 求$P(A_{1})$; (2). 设事件$A_{2}$为”至少有一次出现正面”,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="概率论整理">
+<meta property="og:url" content="http://yoursite.com/2019/06/07/考点&例题[概率论]/index.html">
+<meta property="og:site_name" content="Time Capsule">
+<meta property="og:description" content="[[TOC]]  概率论基本概念  一、随机试验 &amp;#x1F53C;  二、样本空间、随机事件 &amp;#x1F53C;  三、频率与概率 &amp;#x1F53C;  四、等可能概型 公式例题 古典概型的基本事件集合是排列得到的, 而非组合得到的   将一枚硬币抛投三次, (1). 设事件$A_{1}$为”恰有一次出现正面”, 求$P(A_{1})$; (2). 设事件$A_{2}$为”至少有一次出现正面”,">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://jaydhipic.oss-cn-beijing.aliyuncs.com/2019-6-8/3.jpg">
+<meta property="og:image" content="https://jaydhipic.oss-cn-beijing.aliyuncs.com/2019-6-8/2.jpg">
+<meta property="og:updated_time" content="2019-06-10T07:27:09.703Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="概率论整理">
+<meta name="twitter:description" content="[[TOC]]  概率论基本概念  一、随机试验 &amp;#x1F53C;  二、样本空间、随机事件 &amp;#x1F53C;  三、频率与概率 &amp;#x1F53C;  四、等可能概型 公式例题 古典概型的基本事件集合是排列得到的, 而非组合得到的   将一枚硬币抛投三次, (1). 设事件$A_{1}$为”恰有一次出现正面”, 求$P(A_{1})$; (2). 设事件$A_{2}$为”至少有一次出现正面”,">
+<meta name="twitter:image" content="https://jaydhipic.oss-cn-beijing.aliyuncs.com/2019-6-8/3.jpg">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/06/07/考点&例题[概率论]/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>概率论整理 | Time Capsule</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Time Capsule</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">I'm not going home</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/07/考点&例题[概率论]/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JayDhi">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/Survivor.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Time Capsule">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">概率论整理
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+        
+        
+              
+              
+            
+          
+
+          <span class="post-time">
+            
+          </span>
+
+  
+  
+  
+
+
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[[TOC]]</p>
+<hr>
+<h1 id="概率论基本概念"><a href="#概率论基本概念" class="headerlink" title="概率论基本概念 "></a>概率论基本概念 <!--第一章--></h1><hr>
+<h2 id="一、随机试验"><a href="#一、随机试验" class="headerlink" title="一、随机试验 "></a>一、随机试验 <!--第一章--></h2><p><a href="#top">&#x1F53C;</a></p>
+<hr>
+<h2 id="二、样本空间、随机事件"><a href="#二、样本空间、随机事件" class="headerlink" title="二、样本空间、随机事件 "></a>二、样本空间、随机事件 <!--第一章--></h2><p><a href="#top">&#x1F53C;</a></p>
+<hr>
+<h2 id="三、频率与概率"><a href="#三、频率与概率" class="headerlink" title="三、频率与概率 "></a>三、频率与概率 <!--第一章--></h2><p><a href="#top">&#x1F53C;</a></p>
+<hr>
+<h2 id="四、等可能概型"><a href="#四、等可能概型" class="headerlink" title="四、等可能概型 "></a>四、等可能概型 <!--第一章--></h2><h3 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h3><h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><ul>
+<li>古典概型的基本事件集合是<strong>排列</strong>得到的, 而非<strong>组合</strong>得到的</li>
+</ul>
+<ol>
+<li><p>将一枚硬币抛投三次, (1). 设事件$A_{1}$为”恰有一次出现正面”, 求$P(A_{1})$; (2). 设事件$A_{2}$为”至少有一次出现正面”, 求$P({A_{2}})$</p>
+<ol>
+<li>将$n$只球随机地放入$N$盒子中, 试求每个盒子中至多有一只球的概率<br>是<strong>排列</strong>:$p=\frac{N(N-1) \cdots(N-n+1)}{N^{n}}=\frac{A_{N}^{n}}{N^{n}}$<br>而不是<strong>组合</strong>$p=\frac{N(N-1) \cdots(N-n+1)}{N^{n}}=\frac{C_{N}^{n}}{N^{n}}$</li>
+</ol>
+</li>
+<li><p>一个口袋中装有$6$只球, 其中$4$只白球, $2$只红球. 从袋中取球两次, 每次随机地抽取一只, 考虑两种抽取方式: (a). 第一次取一只球, 观察其颜色后放回袋中, 搅匀后再取一球;(b). 第一次取球后不放回, 第二次从剩余的球中再取一球. 试分别对上述两种情况求: (1). 取到的两只都是白球的概率; (2). 取到的两只球颜色相同的概率; (3). 取到的两只球中至少有一只球是白球的概率</p>
+</li>
+<li><p>设有$N$件产品, 其中有$D$件次品, 从中任取$n$件, 问其中恰有$k$件次品的概率是多少?</p>
+</li>
+<li><p>袋中有$a$只白球， $b$只红球, $k$个人依次在袋中取一只球, (1). 做放回抽样; (2). 做不放回抽样. 求第$i$个人抽到白球的概率</p>
+</li>
+<li><p>在$[1, 2000]$的整数中随机地取一个数,问取到的数既不能被$6$整除, 也不能被$8$整除的概率是多少?</p>
+</li>
+<li><p>将$15$名新生随机, 平均地分配到$3$个班级中, 这$15$名新生中有$3$名是优秀生, 求: (1). 每个班级各分配到一名优秀生的概率; (2). $3$名优秀生分配在同一班级的概率</p>
+</li>
+</ol>
+<p><a href="#top">&#x1F53C;</a></p>
+<hr>
+<h2 id="五、条件概率"><a href="#五、条件概率" class="headerlink" title="五、条件概率 "></a>五、条件概率 <!--第一章--></h2><h3 id="公式-1"><a href="#公式-1" class="headerlink" title="公式"></a>公式</h3><ul>
+<li>条件概率</li>
+<li>乘法定理<br>  $$<br>  P(A B)=P(B | A) P(A)<br>  $$<br>  $$<br>  P(A B C)=P(C | A B) P(B | A) P(A)<br>  $$</li>
+<li>全概率公式和贝叶斯公式<ul>
+<li>全概率公式<br>$$<br>P(A)= P\left(A | B_{1}\right) P\left(B_{1}\right)+P\left(A | B_{2}\right) P\left(B_{2}\right)+\cdots+ P\left(A | B_{n}\right) P\left(B_{n}\right)<br>$$</li>
+<li>贝叶斯公式<br>$$<br>P\left(B_{i} | A\right)=\frac{P(AB_{i})}{A}=\frac{P\left(A | B_{i}\right) P\left(B_{i}\right)}{\sum_{j=1}^{n} P\left(A | B_{j}\right) P\left(B_{j}\right)}, \quad i=1,2, \cdots, n<br>$$<h3 id="例题-1"><a href="#例题-1" class="headerlink" title="例题"></a>例题</h3></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>设一汽车在开往目的地的路上需要经过四组信号灯, 每组信号灯以$1/2$的概率放行. 以$X$表示汽车首次停下时经过的信号灯的组数, 求$X$的分布律</li>
+<li>按规定, 某电子元件的使用寿命超过$1500$小时为一级品. 已知一大批产品的一级品率为$0.2$, 现在从中随机地抽查$20$只. 问$20$只元件中恰有$k$只一级品的概率.</li>
+<li>假设某人每次射击的命中率为$0.02$, 独立射击$400$次, 求至少命中两次的概率.</li>
+<li>设有$80$台同类型设备, 各台设备相互独立工作, 发生故障的概率都是$0.01$, 且一台设备的故障能有一个人处理. 现有(a). $4$人维护, 每人维护$20$台; (b). $3$人一起维护$80$台. 两种维护方案, 比较哪种方案更好.<ul>
+<li><input disabled type="checkbox"> 解</li>
+</ul>
+</li>
+</ol>
+<p><a href="#top">&#x1F53C;</a></p>
+<hr>
+<h2 id="六、独立性"><a href="#六、独立性" class="headerlink" title="六、独立性 "></a>六、独立性 <!--第一章--></h2><p><a href="#top">&#x1F53C;</a></p>
+<hr>
+<h1 id="随机变量及其分布"><a href="#随机变量及其分布" class="headerlink" title="随机变量及其分布"></a>随机变量及其分布</h1><h2 id="一、随机变量"><a href="#一、随机变量" class="headerlink" title="一、随机变量 "></a>一、随机变量 <!--第二章--></h2><p><a href="#top">&#x1F53C;</a></p>
+<hr>
+<h2 id="二、离散型随机变量及其分布律"><a href="#二、离散型随机变量及其分布律" class="headerlink" title="二、离散型随机变量及其分布律 "></a>二、离散型随机变量及其分布律 <!--第二章--></h2><h3 id="公式-2"><a href="#公式-2" class="headerlink" title="公式"></a>公式</h3><ol>
+<li><p>$0-1$分布<br> $$<br> \begin{aligned} P{X=k}=p^{k}(1-p)^{1-k}, k=0,1 \quad(0&lt;p&lt;1) \end{aligned}<br> $$</p>
+</li>
+<li><p>伯努利实验&amp;二项分布<br> $$<br> \begin{aligned} P{X=k}=\left(\begin{array}{l}{n} \ {k}\end{array}\right) p^{k} q^{n-k}, k=0,1,2, \cdots, n \end{aligned}<br> $$</p>
+<ul>
+<li>和为 $1$<br>$$<br>\begin{aligned} \sum_{k=0}^{n} P{X=k}&amp;=\sum_{k=0}^{n}\left(\begin{array}{l}{n} \ {k}\end{array}\right) p^{k} q^{n-k}\ &amp; =(p+q)^{n}=1 \end{aligned}<br>$$</li>
+</ul>
+</li>
+<li><p>泊淞分布<br> $$<br> \begin{aligned} P{X=k}=\frac{\lambda^{k} \mathrm{e}^{-\lambda}}{k !}, k=0,1,2, \cdots \end{aligned}<br> $$</p>
+<ul>
+<li>和为 $1$<br>$$<br>\begin{aligned} \sum_{k=0}^{\infty} P{X=k}&amp;=\sum_{k=0}^{\infty} \frac{\lambda^{k} \mathrm{e}^{-\lambda}}{k !}\ &amp; =\mathrm{e}^{-\lambda} \sum_{k=0}^{\infty} \frac{\lambda^{k}}{k !}\ &amp; =\mathrm{e}^{-\lambda} \cdot \mathrm{e}^{\lambda}=1 \end{aligned}<br>$$</li>
+</ul>
+</li>
+</ol>
+<p><a href="#top">&#x1F53C;</a></p>
+<hr>
+<h2 id="三、随机变量的分布函数"><a href="#三、随机变量的分布函数" class="headerlink" title="三、随机变量的分布函数 "></a>三、随机变量的分布函数 <!--第二章--></h2><p><a href="#top">&#x1F53C;</a></p>
+<hr>
+<h2 id="四、连续型随机变量及其概率密度"><a href="#四、连续型随机变量及其概率密度" class="headerlink" title="四、连续型随机变量及其概率密度 "></a>四、连续型随机变量及其概率密度 <!--第二章--></h2><h3 id="公式-3"><a href="#公式-3" class="headerlink" title="公式"></a>公式</h3><ul>
+<li>均匀分布<ul>
+<li>$X \sim U(a, b)$</li>
+<li>$$<br>f(x)=\begin{cases}<br>\frac{1}{b - a}  &amp; a \lt x \gt b \<br>0 &amp; 其他 \<br>\end{cases}<br>$$</li>
+</ul>
+</li>
+<li>指数分布<ul>
+<li>$$<br>f(x)=\begin{cases}<br>\frac{1}{\theta} \mathrm{e}^{-x / \theta} &amp; x \gt 0 \<br>0 &amp; 其他 \<br>\end{cases}<br>$$</li>
+</ul>
+</li>
+<li>正态分布<ul>
+<li>$X \sim N(\mu, \sigma^{2})$</li>
+<li>$$<br>f(x)=\frac{1}{\sqrt{2 \pi} \sigma} \mathrm{e}^{-(x-\mu)^{2} / {2 \sigma^{2}}},-\infty&lt;x&lt;\infty<br>$$</li>
+<li>若$X \sim N(\mu, \sigma^{2})$, 则$Z = \frac{X - \mu}{\sigma} \sim N(0, 1)$<h3 id="例题-2"><a href="#例题-2" class="headerlink" title="例题"></a>例题</h3></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>设$R$是一个随机变量, 均匀分布在$900 \sim 1000$, 求$R$的概率密度以及$R$落在$950 \sim 1050$内的概率</li>
+</ol>
+<p><a href="#top">&#x1F53C;</a></p>
+<hr>
+<h2 id="五、随机变量的函数分布"><a href="#五、随机变量的函数分布" class="headerlink" title="五、随机变量的函数分布  "></a>五、随机变量的函数分布  <!--第二章--></h2><h3 id="公式-4"><a href="#公式-4" class="headerlink" title="公式"></a>公式</h3><h3 id="例题-3"><a href="#例题-3" class="headerlink" title="例题"></a>例题</h3><ol>
+<li>设随机变量$X$具有一下的分布律, 求$Y = (X - 1)^{2}$的分布律.<br> $$<br> \begin{array}{c|cccc}{X} &amp; {-1} &amp; {0} &amp; {1} &amp; {2} \ \hline p_{k} &amp; {0.2} &amp; {0.3} &amp; {0.1} &amp; {0.4}\end{array}<br> $$</li>
+<li>设随机变量$X$具有概率密度<br> $f_{X}(x) = \begin{cases}<br> \frac{x}{8} &amp; 0 \lt x \lt 4 \<br> 0 &amp; 其他<br> \end{cases}$<br> 求随机变量$Y = 2X + 8$的概率密度<ul>
+<li><input disabled type="checkbox"> 定义法</li>
+<li><input disabled type="checkbox"> 反解法</li>
+</ul>
+</li>
+</ol>
+<p><a href="#top">&#x1F53C;</a></p>
+<hr>
+<h1 id="分布函数求法-amp-转换"><a href="#分布函数求法-amp-转换" class="headerlink" title="分布函数求法&amp;转换"></a>分布函数求法&amp;转换</h1><ol>
+<li><p>设随机变量$X$的概率密度为$f(x)=\begin{cases}\frac{1}{a}x^{2} &amp; 0&lt;x&lt;3 \ 0 &amp; 其他\end{cases}$, 现令随机变量$Y=\begin{cases}2 &amp; x \le 1 \ x &amp; 1&lt;x&lt;2 \ 1 &amp; x \ge 2\end{cases}$, 求: (1). $Y$的分布函数; (2). 概率$P \lbrace X \le Y \rbrace$.</p>
+<ul>
+<li><p>解:<br>  由题意, $Y$三种取值情况: <br></p>
+<ol>
+<li><p>$Y=1$ <br></p>
+</li>
+<li><p>$1 \lt Y \lt 2$ <br></p>
+</li>
+<li><p>$Y=2$ <br></p>
+<p>对应的概率为: <br></p>
+</li>
+<li><p>$P { Y = 1 } = P { X \ge 2 } = \int_{2}^{3}\frac{1}{9}(x^{2}) = \frac{1}{27}x^{3} \bigg|_{2}^{3} = \frac{19}{27}$ <br></p>
+</li>
+<li><p>$P { 1 \lt Y \lt 2 } = P { 1 \lt X \lt 2 } = \int_{1}^{y}\frac{1}{9}(x^{2}) = \frac{1}{27}x^{3} \bigg|_{1}^{y} = \frac{1}{27}(y^{3}-1)$ <br></p>
+</li>
+<li><p>$P { Y = 2 } = P { X \le 1 } = \int_{0}^{1}\frac{1}{9}(x^{2}) = \frac{1}{27}x^{3} \bigg|_{0}^{1} = \frac{1}{27}$ <br></p>
+<p>区间取法不同的分布函数</p>
+</li>
+</ol>
+<hr>
+<ol>
+<li>取法一: 区间$\big(-\infty, 1\big), \big[1, 2\big], \big(2, +\infty\big)$ <br><pre><code>$F_{Y}(y) = \begin{cases}
+0 &amp; y \lt 1\\
+\frac{1}{27}(y^{3}+19)&amp; 1 \le y \le 2\\
+0 &amp; 2 \lt y \\
+\end{cases}$ &lt;br/&gt;
+$\begin{aligned}
+P\{X \le Y \} &amp; = P\{ 1 \le Y \le 2\} - P\{ Y = 1 \} \\
+&amp; = 1 - \frac{19}{27} \\
+&amp; = \frac{8}{27}
+\end{aligned}$</code></pre></li>
+</ol>
+<hr>
+<ol>
+<li>取法二: 区间$\big(-\infty, 1\big], \big(1, 2\big), \big[2, +\infty\big)$ <br> <pre><code>$F_{Y}(y) = \begin{cases}
+\frac{19}{27} &amp; y \le 1\\
+\frac{1}{27}(y^{3}-1) &amp; 1 \lt y \lt 2 \\
+\frac{1}{27} &amp; 2 \le y \\
+\end{cases}$ &lt;br/&gt;
+$\begin{aligned}
+P\{X \le Y \} &amp; = P\{ 1 \lt Y \lt 2\} + P\{ Y = 2 \} \\
+&amp; = \frac{1}{27}(2^{3}-1) + \frac{1}{27}
+\end{aligned}$</code></pre></li>
+</ol>
+<hr>
+<ol>
+<li>取法三: 区间$\big(-\infty, 1\big], \big(1, 2\big], \big(2, +\infty\big)$ <br> <pre><code>$F_{Y}(y) = \begin{cases}
+\frac{19}{27} &amp; y \le 1\\
+\frac{1}{27}y^{3} &amp; 1 \lt y \le 2 \\
+0 &amp; 2 \lt y \\ 
+\end{cases}$ &lt;br/&gt;
+$\begin{aligned}
+P\{X \le Y \} &amp; = P\{ 1 \lt Y \le 2\} \\
+&amp; = \frac{8}{27}
+\end{aligned}$</code></pre></li>
+</ol>
+<hr>
+<ol>
+<li>取法四: 区间$\big(-\infty, 1\big), \big[1, 2\big), \big[2, +\infty\big)$ <br>  <pre><code>$F_{Y}(y) = \begin{cases}
+0 &amp; y \lt 1\\
+\frac{1}{27}(y^{3}+18)&amp; 1 \le y \lt 2\\
+\frac{1}{27} &amp; 2 \le y \\
+\end{cases}$ &lt;br/&gt;
+$\begin{aligned}
+P\{X \le Y \} &amp; = P\{ 1 \le Y \lt 2\} - P \{ Y = 1\} + P\{ Y = 2 \} \\
+&amp; = \frac{1}{27}(2^{3}+18) - \frac{19}{27} + \frac{1}{27} \\
+&amp; = \frac{8}{27}
+\end{aligned}$</code></pre></li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<p><a href="#top">&#x1F53C;</a></p>
+<hr>
+<h1 id="多维随机变量及分布"><a href="#多维随机变量及分布" class="headerlink" title="多维随机变量及分布"></a>多维随机变量及分布</h1><h2 id="一、二维随机变量"><a href="#一、二维随机变量" class="headerlink" title="一、二维随机变量 "></a>一、二维随机变量 <!--第三章--></h2><ol>
+<li><p>设随机变量$X$在$1, 2, 3, 4$四个整数中等可能地取一个值, 另一个随机变量$Y$在$1 \sim X$中等可能地取一整数值. 求${X, Y}$的分布律</p>
+<ul>
+<li>$$P{ X = i, Y = j } = P { Y = j | X = i }P{ X = i } = \frac{1}{i} * \frac{1}{4}$$</li>
+</ul>
+</li>
+<li><p>设二维随机变量$(X, Y)$具有概率密度<br> $f(x, y) = \begin{cases}<br> 2e^{-(2x+y)} &amp; x \gt 0, y \gt 0 \<br> 0 &amp; 其他 \<br> \end{cases}$<br> 求: 1.分布函数$F(x, y)$; 2.概率$P{ Y \le X }$.</p>
+<ul>
+<li>$$\int_{0}^{y} \mathrm{d} y \int_{0}^{x} 2e^{-(2x+y)} \mathrm{d} x = (1-e^{-2x})(1-e^{y})$$</li>
+</ul>
+</li>
+</ol>
+<p><a href="#top">&#x1F53C;</a></p>
+<hr>
+<h2 id="二、边缘分布"><a href="#二、边缘分布" class="headerlink" title="二、边缘分布 "></a>二、边缘分布 <!--第三章--></h2><h3 id="公式-5"><a href="#公式-5" class="headerlink" title="公式"></a>公式</h3><ul>
+<li>离散型<br>  $$<br>  \begin{array}{ll}<br>  {P\left{X=x_{i}\right}=p_{i , <em>}} &amp; {=\sum_{j=1}^{\infty} p_{i , j}, \quad i=1,2, \cdots} \<br>  {P\left{Y=y_{j}\right}=p_{</em> , j}} &amp; {=\sum_{i=1}^{\infty} p_{i , j}, \quad j=1,2, \cdots} \<br>  \end{array}<br>  $$</li>
+<li>连续型<br>  $$<br>  \begin{array}{ll}<br>  {f_{X}(x)=\int_{-\infty}^{\infty} f(x, y) \mathrm{d} y} \<br>  {f_{Y}(y)=\int_{-\infty}^{\infty} f(x, y) \mathrm{d} x}\<br>  \end{array}<br>  $$</li>
+<li>若要求$x$, 就固定住$x$, 求这个$x$所对应的垂直于$x$轴上的所有$y$的和<br>  <img src="https://jaydhipic.oss-cn-beijing.aliyuncs.com/2019-6-8/3.jpg" alt="pic"><br><br>  或者是某个$x$对应的所有$y$的和<br>  <img src="https://jaydhipic.oss-cn-beijing.aliyuncs.com/2019-6-8/2.jpg" alt="pic"><br></li>
+</ul>
+<h3 id="例题-4"><a href="#例题-4" class="headerlink" title="例题"></a>例题</h3><ol>
+<li>设随机变量$X$, $Y$具有联合概率密度<br> $f(x, y) = \begin{cases}<br> 6 &amp; x^{2} \le y \le x \<br> 0 &amp; 其他<br> \end{cases}$求边缘概率密度$f_{X}(x)$, $f_{Y}(y)$</li>
+</ol>
+<p><a href="#top">&#x1F53C;</a></p>
+<hr>
+<h2 id="三、条件分布"><a href="#三、条件分布" class="headerlink" title="三、条件分布 "></a>三、条件分布 <!--第三章--></h2><h3 id="公式-6"><a href="#公式-6" class="headerlink" title="公式"></a>公式</h3><ul>
+<li>离散型<br>  $$<br>  \begin{array}{ll}<br>  {P\left{X=x_{i} | Y=y_{j}\right}=\frac{P\left{X=x_{i}, Y=y_{j}\right}}{P\left{Y=y_{j}\right}}=\frac{p_{i j}}{p_{\cdot j}}, i=1,2, \cdots} \<br>  {P\left{Y=y_{j} | X=x_{i}\right}=\frac{P\left{X=x_{i}, Y=y_{j}\right}}{P\left{X=x_{i}\right}}=\frac{p_{i j}}{p_{i \cdot}}, i=1,2, \cdots} \<br>  \end{array}<br>  $$</li>
+<li>连续型<br>  $$<br>  \begin{array}{ll}<br>  {f_{X | Y}(x | y)=\frac{f(x, y)}{f_{Y}(y)}} \<br>  {F_{X | Y}(x | y) = P{X \leqslant x | y&lt;Y \leqslant y+\varepsilon} \approx \frac{\varepsilon \int_{-\infty}^{x} f(x, y) \mathrm{d} x}{\varepsilon f_{Y}(y)}=\int_{-\infty}^{x} \frac{f(x, y)}{f_{Y}(y)} \mathrm{d} x} \<br>  {f_{Y | X}(y | x)=\frac{f(x, y)}{f_{X}(x)}} \<br>  {F_{Y | X}(y | x) = P{Y \leqslant y | x&lt;X \leqslant x+\varepsilon} \approx \frac{\varepsilon \int_{-\infty}^{y} f(x, y) \mathrm{d} y}{\varepsilon f_{X}(x)}=\int_{-\infty}^{x} \frac{f(x, y)}{f_{X}(x)} \mathrm{d} y} \<br>  \end{array}<br>  $$</li>
+</ul>
+<h3 id="例题-5"><a href="#例题-5" class="headerlink" title="例题"></a>例题</h3><ol>
+<li><p>设$G$是平面上的有界区域, 其面积为$A$. 若二维随机变量$(X, Y)$具有概率密度$f(x, y)=\begin{cases}\frac{1}{A} &amp; (x, y) \in G \ 0 &amp; 其他 \end{cases}$, 则称二维随机变量$(X, Y)$在$G$上服从均匀分布. 现设二维随机变量$(X, Y)$在圆域$x^{2}+y^{2} \leqslant 1$上服从均匀分布, 求条件概率密度$f_{X|Y}(x|y)$</p>
+</li>
+<li><p>设数$X$在区间$(0, 1)$上随机地取值, 当观察到$X = x(0 \lt x \lt 1)$时, 数$Y$在区间$(x, 1)$上随机地取值, 求$Y$的概率密度$f_{Y}(y)$</p>
+</li>
+</ol>
+<p><a href="#top">&#x1F53C;</a></p>
+<hr>
+<h2 id="四、相互独立的随机变量"><a href="#四、相互独立的随机变量" class="headerlink" title="四、相互独立的随机变量 "></a>四、相互独立的随机变量 <!--第三章--></h2><h3 id="公式-7"><a href="#公式-7" class="headerlink" title="公式"></a>公式</h3><h3 id="例题-6"><a href="#例题-6" class="headerlink" title="例题"></a>例题</h3><p><a href="#top">&#x1F53C;</a></p>
+<hr>
+<h2 id="五、两个随机变量的函数的分布"><a href="#五、两个随机变量的函数的分布" class="headerlink" title="五、两个随机变量的函数的分布 "></a>五、两个随机变量的函数的分布 <!--第三章--></h2><h3 id="公式-8"><a href="#公式-8" class="headerlink" title="公式"></a>公式</h3><ul>
+<li>$Z=X+Y$型<br>  $$\begin{array}{ll}<br>  {f_{X+Y}(z)=\int_{-\infty}^{\infty} f(z-y, y) \mathrm{d} y=\int_{-\infty}^{\infty} f_{Y}(y) f_{X}(z-y) \mathrm{d} yy} \<br>  {f_{X+Y}(z)=\int_{-\infty}^{\infty} f(x, z-x) \mathrm{d} x=\int_{-\infty}^{\infty} f_{X}(x) f_{Y}(z-x) \mathrm{d} x<br>  } \<br>  \end{array}$$</li>
+<li>$Z=X/Y, Z=XY型$<br>  $$<br>  \begin{array}{ll}<br>  {f_{Y / X}(z) =\int_{-\infty}^{\infty}|x| f(x, x z) \mathrm{d} x} \<br>  {f_{X Y}(z) =\int_{-\infty}^{\infty} (1 / |x|) f\left(x, z / x\right) \mathrm{d} x } \<br>  \end{array}<br>  $$<br>  $$<br>  \begin{array}{ll}<br>  {f_{X / Y}(z) =\int_{-\infty}^{\infty}|y| f(y, y z) \mathrm{d} y} \<br>  {f_{Y X}(z) =\int_{-\infty}^{\infty} (1 / |y|) f\left(y, z / y\right) \mathrm{d} y } \<br>  \end{array}<br>  $$<h3 id="例题-7"><a href="#例题-7" class="headerlink" title="例题"></a>例题</h3></li>
+</ul>
+<ol>
+<li><p>(定义法)设二维随机变量$(X, Y)$的联合密度函数为$p=(x,y)=\begin{cases}3x &amp; 0&lt;y&lt;x, 0&lt;x&lt;1 \ 0 &amp; 其他\end{cases}$, 求$Z=X+Y$的概率密度</p>
+</li>
+<li><p>(定义法)已知随机变量$X$, $Y$相互独立, 且都在$(0, 2)$上服从均匀分布, 求$Z=X+Y$的概率密度</p>
+</li>
+<li><p>在一简单电路中, 两电阻$R_{1}$, $R_{2}$串联连接, 设$R_{1}$, $R_{2}$相互独立, 它们的概率密度均为<br> $f(x)=\begin{cases}<br> \frac{10-x}{50} &amp; 0 \leqslant x \leqslant \<br> 0 &amp; 其他<br> \end{cases}$求总电阻$R=R_{1}+R_{2}$的概率密度</p>
+</li>
+<li><p>某公司提供一种地震保险, 保险费$Y$的概率密度为$f(y)=\begin{cases}\frac{y}{25} \mathrm{e}^{-y / 5} &amp; y \gt 0 \<br> 0 &amp; 其他 \<br> \end{cases}$保险赔付$X$的概率密度为$g(x)=\begin{cases}\frac{1}{5} \mathrm{e}^{-x / 5} &amp; x \gt 0 \<br> 0 &amp; 其他 \<br> \end{cases}$<br> 设$X$与$Y$相互独立, 求$Z=\frac{Y}{X}$的概率密度</p>
+</li>
+</ol>
+<p><a href="#top">&#x1F53C;</a></p>
+<hr>
+<h1 id="随机变量的数字特征"><a href="#随机变量的数字特征" class="headerlink" title="随机变量的数字特征"></a>随机变量的数字特征</h1><p><a href="#top">&#x1F53C;</a></p>
+<hr>
+<h1 id="随机过程及其统计描述"><a href="#随机过程及其统计描述" class="headerlink" title="随机过程及其统计描述"></a>随机过程及其统计描述</h1><h2 id="一、随机过程的概念"><a href="#一、随机过程的概念" class="headerlink" title="一、随机过程的概念"></a>一、随机过程的概念</h2><p><a href="#top">&#x1F53C;</a></p>
+<hr>
+<h2 id="二、随机过程的统计描述"><a href="#二、随机过程的统计描述" class="headerlink" title="二、随机过程的统计描述"></a>二、随机过程的统计描述</h2><p><a href="#top">&#x1F53C;</a></p>
+<hr>
+<h2 id="三、泊淞过程及维纳过程"><a href="#三、泊淞过程及维纳过程" class="headerlink" title="三、泊淞过程及维纳过程"></a>三、泊淞过程及维纳过程</h2><p><a href="#top">&#x1F53C;</a></p>
+<hr>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/06/math/" rel="next" title="math">
+                <i class="fa fa-chevron-left"></i> math
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/07/考点&例题[数据库]/" rel="prev" title="数据库整理">
+                数据库整理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/Survivor.jpg" alt="JayDhi">
+            
+              <p class="site-author-name" itemprop="name">JayDhi</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概率论基本概念"><span class="nav-number">1.</span> <span class="nav-text">概率论基本概念 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、随机试验"><span class="nav-number">1.1.</span> <span class="nav-text">一、随机试验 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、样本空间、随机事件"><span class="nav-number">1.2.</span> <span class="nav-text">二、样本空间、随机事件 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、频率与概率"><span class="nav-number">1.3.</span> <span class="nav-text">三、频率与概率 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、等可能概型"><span class="nav-number">1.4.</span> <span class="nav-text">四、等可能概型 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#公式"><span class="nav-number">1.4.1.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例题"><span class="nav-number">1.4.2.</span> <span class="nav-text">例题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、条件概率"><span class="nav-number">1.5.</span> <span class="nav-text">五、条件概率 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#公式-1"><span class="nav-number">1.5.1.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例题-1"><span class="nav-number">1.5.2.</span> <span class="nav-text">例题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、独立性"><span class="nav-number">1.6.</span> <span class="nav-text">六、独立性 </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#随机变量及其分布"><span class="nav-number">2.</span> <span class="nav-text">随机变量及其分布</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、随机变量"><span class="nav-number">2.1.</span> <span class="nav-text">一、随机变量 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、离散型随机变量及其分布律"><span class="nav-number">2.2.</span> <span class="nav-text">二、离散型随机变量及其分布律 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#公式-2"><span class="nav-number">2.2.1.</span> <span class="nav-text">公式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、随机变量的分布函数"><span class="nav-number">2.3.</span> <span class="nav-text">三、随机变量的分布函数 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、连续型随机变量及其概率密度"><span class="nav-number">2.4.</span> <span class="nav-text">四、连续型随机变量及其概率密度 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#公式-3"><span class="nav-number">2.4.1.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例题-2"><span class="nav-number">2.4.2.</span> <span class="nav-text">例题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、随机变量的函数分布"><span class="nav-number">2.5.</span> <span class="nav-text">五、随机变量的函数分布  </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#公式-4"><span class="nav-number">2.5.1.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例题-3"><span class="nav-number">2.5.2.</span> <span class="nav-text">例题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分布函数求法-amp-转换"><span class="nav-number">3.</span> <span class="nav-text">分布函数求法&amp;转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多维随机变量及分布"><span class="nav-number">4.</span> <span class="nav-text">多维随机变量及分布</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、二维随机变量"><span class="nav-number">4.1.</span> <span class="nav-text">一、二维随机变量 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、边缘分布"><span class="nav-number">4.2.</span> <span class="nav-text">二、边缘分布 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#公式-5"><span class="nav-number">4.2.1.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例题-4"><span class="nav-number">4.2.2.</span> <span class="nav-text">例题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、条件分布"><span class="nav-number">4.3.</span> <span class="nav-text">三、条件分布 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#公式-6"><span class="nav-number">4.3.1.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例题-5"><span class="nav-number">4.3.2.</span> <span class="nav-text">例题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、相互独立的随机变量"><span class="nav-number">4.4.</span> <span class="nav-text">四、相互独立的随机变量 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#公式-7"><span class="nav-number">4.4.1.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例题-6"><span class="nav-number">4.4.2.</span> <span class="nav-text">例题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、两个随机变量的函数的分布"><span class="nav-number">4.5.</span> <span class="nav-text">五、两个随机变量的函数的分布 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#公式-8"><span class="nav-number">4.5.1.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例题-7"><span class="nav-number">4.5.2.</span> <span class="nav-text">例题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#随机变量的数字特征"><span class="nav-number">5.</span> <span class="nav-text">随机变量的数字特征</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#随机过程及其统计描述"><span class="nav-number">6.</span> <span class="nav-text">随机过程及其统计描述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、随机过程的概念"><span class="nav-number">6.1.</span> <span class="nav-text">一、随机过程的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、随机过程的统计描述"><span class="nav-number">6.2.</span> <span class="nav-text">二、随机过程的统计描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、泊淞过程及维纳过程"><span class="nav-number">6.3.</span> <span class="nav-text">三、泊淞过程及维纳过程</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JayDhi</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

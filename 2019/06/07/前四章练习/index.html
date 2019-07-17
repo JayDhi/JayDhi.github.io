@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="等可能概型 古典概型的基本事件集合是排列得到的, 而非组合得到的  1. 将一枚硬币抛投三次, (1). 设事件$A_{1}$为”恰有一次出现正面”, 求$P(A_{1})$; (2). 设事件$A_{2}$为”至少有一次出现正面”, 求$P{A_{2}}$ 2. 将$n$只球随机地放入$N$盒子中, 试求每个盒子中至多有一只球的概率是 排列: $$p=\frac{N(N-1) \cdots(N-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前四章练习">
+<meta property="og:url" content="http://yoursite.com/2019/06/07/前四章练习/index.html">
+<meta property="og:site_name" content="Time Capsule">
+<meta property="og:description" content="等可能概型 古典概型的基本事件集合是排列得到的, 而非组合得到的  1. 将一枚硬币抛投三次, (1). 设事件$A_{1}$为”恰有一次出现正面”, 求$P(A_{1})$; (2). 设事件$A_{2}$为”至少有一次出现正面”, 求$P{A_{2}}$ 2. 将$n$只球随机地放入$N$盒子中, 试求每个盒子中至多有一只球的概率是 排列: $$p=\frac{N(N-1) \cdots(N-">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-07T02:15:24.329Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前四章练习">
+<meta name="twitter:description" content="等可能概型 古典概型的基本事件集合是排列得到的, 而非组合得到的  1. 将一枚硬币抛投三次, (1). 设事件$A_{1}$为”恰有一次出现正面”, 求$P(A_{1})$; (2). 设事件$A_{2}$为”至少有一次出现正面”, 求$P{A_{2}}$ 2. 将$n$只球随机地放入$N$盒子中, 试求每个盒子中至多有一只球的概率是 排列: $$p=\frac{N(N-1) \cdots(N-">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/06/07/前四章练习/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>前四章练习 | Time Capsule</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Time Capsule</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">I'm not going home</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/07/前四章练习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JayDhi">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/Survivor.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Time Capsule">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前四章练习
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+        
+        
+              
+              
+            
+          
+
+          <span class="post-time">
+            
+          </span>
+
+  
+  
+  
+
+
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="等可能概型"><a href="#等可能概型" class="headerlink" title="等可能概型"></a><center>等可能概型</center></h1><ul>
+<li>古典概型的基本事件集合是<strong>排列</strong>得到的, 而非<strong>组合</strong>得到的<br></li>
+</ul>
+<h4 id="1-将一枚硬币抛投三次-1-设事件-A-1-为”恰有一次出现正面”-求-P-A-1-2-设事件-A-2-为”至少有一次出现正面”-求-P-A-2"><a href="#1-将一枚硬币抛投三次-1-设事件-A-1-为”恰有一次出现正面”-求-P-A-1-2-设事件-A-2-为”至少有一次出现正面”-求-P-A-2" class="headerlink" title="1. 将一枚硬币抛投三次, (1). 设事件$A_{1}$为”恰有一次出现正面”, 求$P(A_{1})$; (2). 设事件$A_{2}$为”至少有一次出现正面”, 求$P{A_{2}}$"></a>1. 将一枚硬币抛投三次, (1). 设事件$A_{1}$为”恰有一次出现正面”, 求$P(A_{1})$; (2). 设事件$A_{2}$为”至少有一次出现正面”, 求$P{A_{2}}$</h4><hr>
+<h4 id="2-将-n-只球随机地放入-N-盒子中-试求每个盒子中至多有一只球的概率"><a href="#2-将-n-只球随机地放入-N-盒子中-试求每个盒子中至多有一只球的概率" class="headerlink" title="2. 将$n$只球随机地放入$N$盒子中, 试求每个盒子中至多有一只球的概率"></a>2. 将$n$只球随机地放入$N$盒子中, 试求每个盒子中至多有一只球的概率</h4><p>是
+<strong>排列</strong>:
+$$<br>p=\frac{N(N-1) \cdots(N-n+1)}{N^{n}}=\frac{A_{N}^{n}}{N^{n}}<br>$$<br>而不是<strong>组合</strong><br>$$<br>p=\frac{N(N-1) \cdots(N-n+1)}{N^{n}}=\frac{C_{N}^{n}}{N^{n}}<br>$$</p>
+<hr>
+<h4 id="3-一个口袋中装有-6-只球-其中-4-只白球-2-只红球-从袋中取球两次-每次随机地抽取一只-考虑两种抽取方式-a-第一次取一只球-观察其颜色后放回袋中-搅匀后再取一球-b-第一次取球后不放回-第二次从剩余的球中再取一球-试分别对上述两种情况求-1-取到的两只都是白球的概率-2-取到的两只球颜色相同的概率-3-取到的两只球中至少有一只球是白球的概率"><a href="#3-一个口袋中装有-6-只球-其中-4-只白球-2-只红球-从袋中取球两次-每次随机地抽取一只-考虑两种抽取方式-a-第一次取一只球-观察其颜色后放回袋中-搅匀后再取一球-b-第一次取球后不放回-第二次从剩余的球中再取一球-试分别对上述两种情况求-1-取到的两只都是白球的概率-2-取到的两只球颜色相同的概率-3-取到的两只球中至少有一只球是白球的概率" class="headerlink" title="3. 一个口袋中装有$6$只球, 其中$4$只白球, $2$只红球. 从袋中取球两次, 每次随机地抽取一只, 考虑两种抽取方式: (a). 第一次取一只球, 观察其颜色后放回袋中, 搅匀后再取一球;(b). 第一次取球后不放回, 第二次从剩余的球中再取一球. 试分别对上述两种情况求: (1). 取到的两只都是白球的概率; (2). 取到的两只球颜色相同的概率; (3). 取到的两只球中至少有一只球是白球的概率"></a>3. 一个口袋中装有$6$只球, 其中$4$只白球, $2$只红球. 从袋中取球两次, 每次随机地抽取一只, 考虑两种抽取方式: (a). 第一次取一只球, 观察其颜色后放回袋中, 搅匀后再取一球;(b). 第一次取球后不放回, 第二次从剩余的球中再取一球. 试分别对上述两种情况求: (1). 取到的两只都是白球的概率; (2). 取到的两只球颜色相同的概率; (3). 取到的两只球中至少有一只球是白球的概率</h4><hr>
+<h4 id="4-设有-N-件产品-其中有-D-件次品-从中任取-n-件-问其中恰有-k-件次品的概率是多少"><a href="#4-设有-N-件产品-其中有-D-件次品-从中任取-n-件-问其中恰有-k-件次品的概率是多少" class="headerlink" title="4. 设有$N$件产品, 其中有$D$件次品, 从中任取$n$件, 问其中恰有$k$件次品的概率是多少?"></a>4. 设有$N$件产品, 其中有$D$件次品, 从中任取$n$件, 问其中恰有$k$件次品的概率是多少?</h4><hr>
+<h4 id="5-袋中有-a-只白球，-b-只红球-k-个人依次在袋中取一只球-1-做放回抽样-2-做不放回抽样-求第-i-个人抽到白球的概率"><a href="#5-袋中有-a-只白球，-b-只红球-k-个人依次在袋中取一只球-1-做放回抽样-2-做不放回抽样-求第-i-个人抽到白球的概率" class="headerlink" title="5. 袋中有$a$只白球， $b$只红球, $k$个人依次在袋中取一只球, (1). 做放回抽样; (2). 做不放回抽样. 求第$i$个人抽到白球的概率"></a>5. 袋中有$a$只白球， $b$只红球, $k$个人依次在袋中取一只球, (1). 做放回抽样; (2). 做不放回抽样. 求第$i$个人抽到白球的概率</h4><hr>
+<h4 id="6-在-1-2000-的整数中随机地取一个数-问取到的数既不能被-6-整除-也不能被-8-整除的概率是多少"><a href="#6-在-1-2000-的整数中随机地取一个数-问取到的数既不能被-6-整除-也不能被-8-整除的概率是多少" class="headerlink" title="6. 在$[1, 2000]$的整数中随机地取一个数,问取到的数既不能被$6$整除, 也不能被$8$整除的概率是多少?"></a>6. 在$[1, 2000]$的整数中随机地取一个数,问取到的数既不能被$6$整除, 也不能被$8$整除的概率是多少?</h4><hr>
+<h4 id="7-将-15-名新生随机-平均地分配到-3-个班级中-这-15-名新生中有-3-名是优秀生-求-1-每个班级各分配到一名优秀生的概率-2-3-名优秀生分配在同一班级的概率"><a href="#7-将-15-名新生随机-平均地分配到-3-个班级中-这-15-名新生中有-3-名是优秀生-求-1-每个班级各分配到一名优秀生的概率-2-3-名优秀生分配在同一班级的概率" class="headerlink" title="7. 将$15$名新生随机, 平均地分配到$3$个班级中, 这$15$名新生中有$3$名是优秀生, 求: (1). 每个班级各分配到一名优秀生的概率; (2). $3$名优秀生分配在同一班级的概率"></a>7. 将$15$名新生随机, 平均地分配到$3$个班级中, 这$15$名新生中有$3$名是优秀生, 求: (1). 每个班级各分配到一名优秀生的概率; (2). $3$名优秀生分配在同一班级的概率</h4><hr>
+<h1 id="Z-X-Y型随机变量的概率密度"><a href="#Z-X-Y型随机变量的概率密度" class="headerlink" title="Z=X+Y型随机变量的概率密度"></a><center>Z=X+Y型随机变量的概率密度</center></h1><h4 id="1-定义法-设二维随机变量-X-Y-的联合密度函数为-p-x-y-begin-cases-3x-amp-0-lt-y-lt-x-0-lt-x-lt-1-0-amp-其他-end-cases-求-Z-X-Y-的概率密度"><a href="#1-定义法-设二维随机变量-X-Y-的联合密度函数为-p-x-y-begin-cases-3x-amp-0-lt-y-lt-x-0-lt-x-lt-1-0-amp-其他-end-cases-求-Z-X-Y-的概率密度" class="headerlink" title="1. (定义法)设二维随机变量$(X, Y)$的联合密度函数为$p=(x,y)=\begin{cases}3x &amp; 0&lt;y&lt;x, 0&lt;x&lt;1 \\ 0 &amp; 其他\end{cases}$, 求$Z=X+Y$的概率密度"></a>1. (定义法)设二维随机变量$(X, Y)$的联合密度函数为$p=(x,y)=\begin{cases}3x &amp; 0&lt;y&lt;x, 0&lt;x&lt;1 \\ 0 &amp; 其他\end{cases}$, 求$Z=X+Y$的概率密度</h4><h4 id="2-定义法-已知随机变量-X-Y-相互独立-且都在-0-2-上服从均匀分布-求-Z-X-Y-的概率密度"><a href="#2-定义法-已知随机变量-X-Y-相互独立-且都在-0-2-上服从均匀分布-求-Z-X-Y-的概率密度" class="headerlink" title="2. (定义法)已知随机变量$X$, $Y$相互独立, 且都在$(0, 2)$上服从均匀分布, 求$Z=X+Y$的概率密度"></a>2. (定义法)已知随机变量$X$, $Y$相互独立, 且都在$(0, 2)$上服从均匀分布, 求$Z=X+Y$的概率密度</h4><h1 id="随机变量的分布函数-amp-转换"><a href="#随机变量的分布函数-amp-转换" class="headerlink" title="随机变量的分布函数&amp;转换"></a><center>随机变量的分布函数&amp;转换</center></h1><h4 id="1-设随机变量-X-的概率密度为-f-x-begin-cases-frac-1-a-x-2-amp-0-lt-x-lt-3-0-amp-其他-end-cases-现令随机变量-Y-begin-cases-2-amp-x-le-1-x-amp-1-lt-x-lt-2-1-amp-x-gt-2-end-cases-求-1-Y-的分布函数-2-概率-P-lbrace-X-le-Y-rbrace"><a href="#1-设随机变量-X-的概率密度为-f-x-begin-cases-frac-1-a-x-2-amp-0-lt-x-lt-3-0-amp-其他-end-cases-现令随机变量-Y-begin-cases-2-amp-x-le-1-x-amp-1-lt-x-lt-2-1-amp-x-gt-2-end-cases-求-1-Y-的分布函数-2-概率-P-lbrace-X-le-Y-rbrace" class="headerlink" title="1. 设随机变量$X$的概率密度为$f(x)=\begin{cases}\frac{1}{a}x^{2} &amp; 0&lt;x&lt;3 \\ 0 &amp; 其他\end{cases}$, 现令随机变量$Y=\begin{cases}2 &amp; x \le 1 \\ x &amp; 1&lt;x&lt;2 \\ 1 &amp; x \gt 2\end{cases}$, 求: (1). $Y$的分布函数; (2). 概率$P \lbrace X \le Y \rbrace$."></a>1. 设随机变量$X$的概率密度为$f(x)=\begin{cases}\frac{1}{a}x^{2} &amp; 0&lt;x&lt;3 \\ 0 &amp; 其他\end{cases}$, 现令随机变量$Y=\begin{cases}2 &amp; x \le 1 \\ x &amp; 1&lt;x&lt;2 \\ 1 &amp; x \gt 2\end{cases}$, 求: (1). $Y$的分布函数; (2). 概率$P \lbrace X \le Y \rbrace$.</h4><ul>
+<li><p>解:</p>
+<ul>
+<li><p>(1): <br><br>$F_{Y}(y) = P \lbrace Y \le y \rbrace$, 由$Y$的概率分布知: <br></p>
+<ul>
+<li>当$y&lt;1$时, $F_{Y}(y)=0$</li>
+<li>当$y&gt;2$时, $F_{Y}(y)=1$</li>
+<li>当$1 \le y \le 2$时,<br>  $$<br>  \begin{aligned}<br>  F_{Y}(y) = P \lbrace Y \le y \rbrace<br>  &amp; = P \lbrace Y = 1 \rbrace + P \lbrace 1 &lt; Y \le y \rbrace \<br>  &amp; = P \lbrace Y = 1 \rbrace + P \lbrace 1 &lt; X \le y \rbrace \<br>  &amp; = P \lbrace X \ge 2 \rbrace + P \lbrace 1 &lt; X \le y \rbrace \<br>  &amp; = \int^{3}<em>{2} \frac{1}{9}x^{2}dx + \int^{y}</em>{1} \frac{1}{9}x^2dx \<br>  &amp; = \frac{1}{27}(y^{3}+18)<br>  \end{aligned}<br>  $$</li>
+</ul>
+</li>
+<li><p>(2): <br></p>
+<ul>
+<li><p>由题意:<br>  $$<br>  F_{X}(x) = P \lbrace X \le x \rbrace = \int^{x}_{-\infty}f(t)dt =<br>  \begin{cases}<br>  0 &amp; x \lt 0 \<br>  \frac{1}{27}x^{3} &amp; 0 \le x \lt 3 \<br>  1 &amp; x \ge 3<br>  \end{cases}<br>  $$</p>
+</li>
+<li><p>所以:<br>  $$<br>  F_{X}(y) = P \lbrace X \le y \rbrace =<br>  \begin{cases}<br>  0 &amp; y \lt 0 \<br>  \frac{1}{27}y^{3} &amp; 0 \le y \lt 3 \<br>  1 &amp; y \ge 3<br>  \end{cases}<br>  $$</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/07/考点&例题[数据库]/" rel="next" title="数据库整理">
+                <i class="fa fa-chevron-left"></i> 数据库整理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/17/I-shall-rise-md/" rel="prev" title="I shall rise">
+                I shall rise <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/Survivor.jpg" alt="JayDhi">
+            
+              <p class="site-author-name" itemprop="name">JayDhi</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#等可能概型"><span class="nav-number">1.</span> <span class="nav-text">等可能概型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-将一枚硬币抛投三次-1-设事件-A-1-为”恰有一次出现正面”-求-P-A-1-2-设事件-A-2-为”至少有一次出现正面”-求-P-A-2"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">1. 将一枚硬币抛投三次, (1). 设事件$A_{1}$为”恰有一次出现正面”, 求$P(A_{1})$; (2). 设事件$A_{2}$为”至少有一次出现正面”, 求$P{A_{2}}$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-将-n-只球随机地放入-N-盒子中-试求每个盒子中至多有一只球的概率"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">2. 将$n$只球随机地放入$N$盒子中, 试求每个盒子中至多有一只球的概率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-一个口袋中装有-6-只球-其中-4-只白球-2-只红球-从袋中取球两次-每次随机地抽取一只-考虑两种抽取方式-a-第一次取一只球-观察其颜色后放回袋中-搅匀后再取一球-b-第一次取球后不放回-第二次从剩余的球中再取一球-试分别对上述两种情况求-1-取到的两只都是白球的概率-2-取到的两只球颜色相同的概率-3-取到的两只球中至少有一只球是白球的概率"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">3. 一个口袋中装有$6$只球, 其中$4$只白球, $2$只红球. 从袋中取球两次, 每次随机地抽取一只, 考虑两种抽取方式: (a). 第一次取一只球, 观察其颜色后放回袋中, 搅匀后再取一球;(b). 第一次取球后不放回, 第二次从剩余的球中再取一球. 试分别对上述两种情况求: (1). 取到的两只都是白球的概率; (2). 取到的两只球颜色相同的概率; (3). 取到的两只球中至少有一只球是白球的概率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-设有-N-件产品-其中有-D-件次品-从中任取-n-件-问其中恰有-k-件次品的概率是多少"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">4. 设有$N$件产品, 其中有$D$件次品, 从中任取$n$件, 问其中恰有$k$件次品的概率是多少?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-袋中有-a-只白球，-b-只红球-k-个人依次在袋中取一只球-1-做放回抽样-2-做不放回抽样-求第-i-个人抽到白球的概率"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">5. 袋中有$a$只白球， $b$只红球, $k$个人依次在袋中取一只球, (1). 做放回抽样; (2). 做不放回抽样. 求第$i$个人抽到白球的概率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-在-1-2000-的整数中随机地取一个数-问取到的数既不能被-6-整除-也不能被-8-整除的概率是多少"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">6. 在$[1, 2000]$的整数中随机地取一个数,问取到的数既不能被$6$整除, 也不能被$8$整除的概率是多少?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-将-15-名新生随机-平均地分配到-3-个班级中-这-15-名新生中有-3-名是优秀生-求-1-每个班级各分配到一名优秀生的概率-2-3-名优秀生分配在同一班级的概率"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">7. 将$15$名新生随机, 平均地分配到$3$个班级中, 这$15$名新生中有$3$名是优秀生, 求: (1). 每个班级各分配到一名优秀生的概率; (2). $3$名优秀生分配在同一班级的概率</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Z-X-Y型随机变量的概率密度"><span class="nav-number">2.</span> <span class="nav-text">Z=X+Y型随机变量的概率密度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-定义法-设二维随机变量-X-Y-的联合密度函数为-p-x-y-begin-cases-3x-amp-0-lt-y-lt-x-0-lt-x-lt-1-0-amp-其他-end-cases-求-Z-X-Y-的概率密度"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">1. (定义法)设二维随机变量$(X, Y)$的联合密度函数为$p=(x,y)=\begin{cases}3x &amp; 0&lt;y&lt;x, 0&lt;x&lt;1 \\ 0 &amp; 其他\end{cases}$, 求$Z=X+Y$的概率密度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-定义法-已知随机变量-X-Y-相互独立-且都在-0-2-上服从均匀分布-求-Z-X-Y-的概率密度"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">2. (定义法)已知随机变量$X$, $Y$相互独立, 且都在$(0, 2)$上服从均匀分布, 求$Z=X+Y$的概率密度</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#随机变量的分布函数-amp-转换"><span class="nav-number">3.</span> <span class="nav-text">随机变量的分布函数&amp;转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-设随机变量-X-的概率密度为-f-x-begin-cases-frac-1-a-x-2-amp-0-lt-x-lt-3-0-amp-其他-end-cases-现令随机变量-Y-begin-cases-2-amp-x-le-1-x-amp-1-lt-x-lt-2-1-amp-x-gt-2-end-cases-求-1-Y-的分布函数-2-概率-P-lbrace-X-le-Y-rbrace"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">1. 设随机变量$X$的概率密度为$f(x)=\begin{cases}\frac{1}{a}x^{2} &amp; 0&lt;x&lt;3 \\ 0 &amp; 其他\end{cases}$, 现令随机变量$Y=\begin{cases}2 &amp; x \le 1 \\ x &amp; 1&lt;x&lt;2 \\ 1 &amp; x \gt 2\end{cases}$, 求: (1). $Y$的分布函数; (2). 概率$P \lbrace X \le Y \rbrace$.</span></a></li></ol></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JayDhi</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

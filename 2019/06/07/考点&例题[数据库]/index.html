@@ -96,15 +96,17 @@
 
 
 
-  <meta name="keywords" content="BaseLine">
+  <meta name="description" content="范式与函数依赖 范式例题 已知$R = {A, B, C, D}, \quad F = {AB \to D, C \to A, D \to C }$, 请问$R$是否满足第二范式, 第三范式, $BCNF$范式   函数依赖求最小函数依赖集一、求闭包  例题  已知关系模式$R&amp;lt;U, F&amp;gt;$, 其中:$U = {A, B, C, D, E}$$F = {AB \to C, B \to">
 <meta property="og:type" content="article">
-<meta property="og:title" content="I&#39;m not going home.">
-<meta property="og:url" content="http://yoursite.com/2019/06/04/I-m-not-going-home/index.html">
+<meta property="og:title" content="数据库整理">
+<meta property="og:url" content="http://yoursite.com/2019/06/07/考点&例题[数据库]/index.html">
 <meta property="og:site_name" content="Time Capsule">
+<meta property="og:description" content="范式与函数依赖 范式例题 已知$R = {A, B, C, D}, \quad F = {AB \to D, C \to A, D \to C }$, 请问$R$是否满足第二范式, 第三范式, $BCNF$范式   函数依赖求最小函数依赖集一、求闭包  例题  已知关系模式$R&amp;lt;U, F&amp;gt;$, 其中:$U = {A, B, C, D, E}$$F = {AB \to C, B \to">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-04T04:47:35.460Z">
+<meta property="og:updated_time" content="2019-06-10T07:26:32.930Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="I&#39;m not going home.">
+<meta name="twitter:title" content="数据库整理">
+<meta name="twitter:description" content="范式与函数依赖 范式例题 已知$R = {A, B, C, D}, \quad F = {AB \to D, C \to A, D \to C }$, 请问$R$是否满足第二范式, 第三范式, $BCNF$范式   函数依赖求最小函数依赖集一、求闭包  例题  已知关系模式$R&amp;lt;U, F&amp;gt;$, 其中:$U = {A, B, C, D, E}$$F = {AB \to C, B \to">
 
 
 
@@ -112,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/06/04/I-m-not-going-home/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/07/考点&例题[数据库]/">
 
 
 
@@ -122,7 +124,7 @@
   };
 </script>
 
-  <title>I'm not going home. | Time Capsule</title>
+  <title>数据库整理 | Time Capsule</title>
   
 
 
@@ -308,7 +310,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/04/I-m-not-going-home/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/07/考点&例题[数据库]/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JayDhi">
@@ -325,7 +327,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">I'm not going home.
+          <h1 class="post-title" itemprop="name headline">数据库整理
 
               
             
@@ -335,28 +337,12 @@
         <div class="post-meta">
         
         
-            <span class="post-category">
+              
+              
             
-            
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/I-m-not-going-home/" itemprop="url" rel="index"><span itemprop="name">I'm not going home.</span></a></span>
-
-                
-                
-              
-              
-            </span>
           
 
           <span class="post-time">
-            
-                
-                    
-            
-
-            
-                <a href="/tags/BaseLine/" rel="tag"># BaseLine</a>
-            
             
           </span>
 
@@ -393,7 +379,60 @@
       
 
       
-        
+        <h1 id="范式与函数依赖"><a href="#范式与函数依赖" class="headerlink" title="范式与函数依赖"></a>范式与函数依赖</h1><hr>
+<h2 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h2><h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><ol>
+<li>已知$R = {A, B, C, D}, \quad F = {AB \to D, C \to A, D \to C }$, 请问$R$是否满足第二范式, 第三范式, $BCNF$范式</li>
+</ol>
+<hr>
+<h2 id="函数依赖"><a href="#函数依赖" class="headerlink" title="函数依赖"></a>函数依赖</h2><h3 id="求最小函数依赖集"><a href="#求最小函数依赖集" class="headerlink" title="求最小函数依赖集"></a>求最小函数依赖集</h3><p>一、求闭包</p>
+<ul>
+<li><p>例题</p>
+<ol>
+<li><p>已知关系模式$R&lt;U, F&gt;$, 其中:<br><br>$U = {A, B, C, D, E}$<br><br>$F = {AB \to C, B \to C, C \to E, EC \to B, AC \to B }$<br><br>求$(AB)^{+}_{F}$</p>
+<ul>
+<li>解<ol>
+<li>$(AB)^{+}_{F} = {A, B}$</li>
+<li>${AB \to C, B \to D} \Rightarrow {C, D}, \quad (AB)^{+}_{F} = {A, B, C, D}$</li>
+<li>${C \to E} \Rightarrow {E}, \quad (AB)^{+}_{F} = {A, B, C, D, E}$</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>已知关系模式$R&lt;U, F&gt;$, 其中:<br><br>$U = {A, B, C, D, E, I}$<br><br>$F = {A \to D, AB \to E, BI \to E, CD \to I, E \to C}$<br><br>求$(AE)^{+}_{F}$</p>
+<ul>
+<li>解: $(AE)^{+}_{F} = {A, E, C, D, I}$</li>
+</ul>
+</li>
+<li><p>已知$F = {A \to B, B \to C, A \to D, E \to F}, (A)^{+} = {A, B, C, D}$</p>
+</li>
+</ol>
+</li>
+</ul>
+<p>二、拆解并筛选多余函数依赖</p>
+<ul>
+<li>例题<ol>
+<li>已知关系模式$R&lt;U, F&gt;$, 其中:<br><br>$U={A, B, C, D, E, G}$<br><br>$F={B \rightarrow D, D G \rightarrow C, B D \rightarrow E, A G \rightarrow B, A D G \rightarrow B C}$<br><ul>
+<li>拆解: $ADG \to BC \Rightarrow \begin{cases}ADG \rightarrow B \ ADG \rightarrow C\end{cases}$</li>
+<li>$F’ = {B \to D, G \to C, BD \to E, AG \to B, ADG \to B, ADG \to C}$</li>
+<li>筛选多余函数依赖:<ul>
+<li>去除$B \to D$, $F’’ = {G \to C, BD \to E, AG \to B, ADG \to B, ADG \to C}$, $B^{+}_{F’’} = D$, 不包含推导式右侧元素, 保留.</li>
+<li>去除$AG \to B$, $F’’ = {B \to D, G \to C, BD \to E, ADG \to B, ADG \to C}$, $(ADG)^{+}_{F’’} = {A, D, G, C, B, D}$, 包含产生式右侧元素, 去除.</li>
+</ul>
+</li>
+<li>$F’’ = {B \to D, DG \to C, BD \to E, AG \to B}$</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h1 id="并发控制"><a href="#并发控制" class="headerlink" title="并发控制"></a>并发控制</h1><h2 id="一、锁"><a href="#一、锁" class="headerlink" title="一、锁"></a>一、锁</h2><h3 id="两段锁"><a href="#两段锁" class="headerlink" title="两段锁"></a>两段锁</h3><ul>
+<li>锁要一起获取, 释放</li>
+<li>锁的获取, 释放先后次序没有影响 </li>
+</ul>
+<hr>
+<hr>
+
       
     </div>
 
@@ -421,14 +460,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/06/07/考点&例题[概率论]/" rel="next" title="概率论整理">
+                <i class="fa fa-chevron-left"></i> 概率论整理
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/06/math/" rel="prev" title="math">
-                math <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/07/前四章练习/" rel="prev" title="前四章练习">
+                前四章练习 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -473,8 +516,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -558,6 +610,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#范式与函数依赖"><span class="nav-number">1.</span> <span class="nav-text">范式与函数依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#范式"><span class="nav-number">1.1.</span> <span class="nav-text">范式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例题"><span class="nav-number">1.1.1.</span> <span class="nav-text">例题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数依赖"><span class="nav-number">1.2.</span> <span class="nav-text">函数依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#求最小函数依赖集"><span class="nav-number">1.2.1.</span> <span class="nav-text">求最小函数依赖集</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#并发控制"><span class="nav-number">2.</span> <span class="nav-text">并发控制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、锁"><span class="nav-number">2.1.</span> <span class="nav-text">一、锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#两段锁"><span class="nav-number">2.1.1.</span> <span class="nav-text">两段锁</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -698,7 +767,7 @@
   
 
 
-  <script src="/js/next-boot.js?v=7.1.2"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script src="/js/next-boot.js?v=7.1.2"></script>
 
 
   
@@ -728,6 +797,46 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
   
 
 
